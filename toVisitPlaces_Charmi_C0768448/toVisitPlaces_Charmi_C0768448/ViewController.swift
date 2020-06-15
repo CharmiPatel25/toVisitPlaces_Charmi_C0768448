@@ -10,10 +10,23 @@ import UIKit
 
 class ViewController: UITableViewController {
 
+    
+    var editDestination :Places?
+    var favDestination: [Places]?
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    func getPath() -> String {
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let filePath = documentPath.appending("/FavoritePlaceData.txt")
+        return filePath
+    }
+    
+    
 
 
 }
