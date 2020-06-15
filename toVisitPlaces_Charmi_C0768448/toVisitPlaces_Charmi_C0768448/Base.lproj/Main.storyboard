@@ -10,7 +10,7 @@
         <!--My Favorite Places-->
         <scene sceneID="wDy-9W-Opm">
             <objects>
-                <tableViewController id="GJ6-Kk-Cbm" customClass="FavoritePlacesTableViewController" customModule="toVisitPlaces_Charmi_C0768448" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="GJ6-Kk-Cbm" customClass="ViewController" customModule="toVisitPlaces_Charmi_C0768448" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nu6-ND-7Cm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,7 +93,7 @@
         <!--Add New  Place-->
         <scene sceneID="s3s-ni-RKg">
             <objects>
-                <viewController id="iAq-bY-Y1e" customClass="addPlaceViewController" customModule="toVisitPlaces_Charmi_C0768448" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iAq-bY-Y1e" customClass="AddNewPlaceViewController" customModule="toVisitPlaces_Charmi_C0768448" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hca-iT-xUM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

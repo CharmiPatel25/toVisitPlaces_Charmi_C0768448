@@ -46,7 +46,30 @@ class ViewController: UITableViewController {
             }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+            loadPlaces()
+            self.tableView.reloadData()
+    }
 
+    func deleteData(_ newArray: [Places]){
+        
+        let filePath = getPath()
+                   
+                   var saveString = ""
+                   
+                   for favoritePlace in newArray {
+                       saveString = "\(saveString)\(favoritePlace.lattitude),\(favoritePlace.longitude),\(favoritePlace.address)\n"
+                   }
+                   
+                   do{
+                       try saveString.write(toFile: filePath, atomically: true, encoding: .utf8)
+                   } catch {
+                       print(error)
+                   }
+                   
+    }
 
 }
 
