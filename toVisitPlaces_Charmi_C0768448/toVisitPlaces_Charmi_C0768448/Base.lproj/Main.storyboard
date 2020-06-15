@@ -106,6 +106,9 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumValue="-100" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uY0-5N-GUh">
                                 <rect key="frame" x="10" y="98" width="94" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="zoomFunc:" destination="iAq-bY-Y1e" eventType="valueChanged" id="crf-tO-We9"/>
+                                </connections>
                             </stepper>
                             <tabBar hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vN7-K1-Pwt">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>

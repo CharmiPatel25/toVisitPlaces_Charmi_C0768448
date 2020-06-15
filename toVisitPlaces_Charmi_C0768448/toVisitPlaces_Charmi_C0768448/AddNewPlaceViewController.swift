@@ -162,6 +162,24 @@ class AddNewPlaceViewController: UIViewController ,  MKMapViewDelegate, UITabBar
     
     
     
+    @IBAction func zoomFunc(_ sender: UIStepper) {
+        
+        let stepperValue = zoom.value
+        if(stepperValue > self.stepperComparingValue){
+            var region: MKCoordinateRegion = mapView.region
+            region.span.latitudeDelta /= 2.0
+            region.span.longitudeDelta /= 2.0
+            mapView.setRegion(region, animated: true)
+            self.stepperComparingValue = stepperValue
+        }else if(stepperValue < self.stepperComparingValue){
+
+            var region: MKCoordinateRegion = mapView.region
+              region.span.latitudeDelta = min(region.span.latitudeDelta * 2.0, 180.0)
+              region.span.longitudeDelta = min(region.span.longitudeDelta * 2.0, 180.0)
+              mapView.setRegion(region, animated: true)
+            self.stepperComparingValue = stepperValue
+        }
+    }
     
     
     
