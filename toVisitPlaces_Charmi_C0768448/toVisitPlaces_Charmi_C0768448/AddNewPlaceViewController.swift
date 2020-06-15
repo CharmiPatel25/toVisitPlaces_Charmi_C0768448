@@ -183,9 +183,71 @@ class AddNewPlaceViewController: UIViewController ,  MKMapViewDelegate, UITabBar
     
     
     
+    @IBAction func locationBtnClick(_ sender: UIButton) {
+        let sourceLat = mapView.userLocation.location?.coordinate.latitude ?? 0.00
+                       let sourceLong = mapView.userLocation.location?.coordinate.longitude ?? 0.00
+                       let destinationLat = self.tappedLocation?.latitude ?? 0.00
+                       let destinationLong = self.tappedLocation?.longitude ?? 0.00
+                       print("Source: \(sourceLat) , \(sourceLong)")
+                       print("Destination: \(destinationLat) , \(destinationLong)")
+                           if(sourceLat == 0.0 || sourceLong == 0.0){
+                               let alert = UIAlertController(title: "Location couldn't retrieve!!", message: "Simulate Location from your xcode", preferredStyle: UIAlertController.Style.alert)
+                                             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                                             self.present(alert, animated: true, completion: nil)
+                       }
+                           else if(destinationLat == 0.0 || destinationLong == 0.0){
+                               let alert = UIAlertController(title: "Alert", message: "Please double tap to select destination", preferredStyle: UIAlertController.Style.alert)
+                                  alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                                  self.present(alert, animated: true, completion: nil)
+                           }else{
+                   
+                   let alert = UIAlertController(title: "Select!!", message: "Please select the Travel mode", preferredStyle: UIAlertController.Style.alert)
+
+                   alert.addAction(UIAlertAction(title: "Walking", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+
+                       self.travelMode.selectedItem = self.travelMode.items?[0]
+                       self.request.transportType = .walking
+                       self.getRoute()
+                   }))
+                   alert.addAction(UIAlertAction(title: "Drive", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+
+                       self.travelMode.selectedItem = self.travelMode.items?[1]
+                           self.request.transportType = .automobile
+                           self.getRoute()
+                          }))
+                   self.present(alert, animated: true, completion: nil)
+              
+                   }
+    }
     
     
-    
+    func getRoute(){
+               //source and destination lat and long
+               let sourceLat = mapView.userLocation.location?.coordinate.latitude ?? 0.00
+               let sourceLong = mapView.userLocation.location?.coordinate.longitude ?? 0.00
+               let destinationLat = self.tappedLocation?.latitude ?? 0.00
+               let destinationLong = self.tappedLocation?.longitude ?? 0.00
+               print("Source: \(sourceLat) , \(sourceLong)")
+               print("Destination: \(destinationLat) , \(destinationLong)")
+                   travelMode.isHidden = false
+                  // locationBtn.isHidden = true
+                   // request globally declared
+                   request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: sourceLat, longitude: sourceLong), addressDictionary: nil))
+                   request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: destinationLat, longitude: destinationLong), addressDictionary: nil))
+                   request.requestsAlternateRoutes = true
+                      
+
+                   let directions = MKDirections(request: request)
+
+                   directions.calculate { [unowned self] response, error in
+                       guard let unwrappedResponse = response else { return }
+
+                       for route in unwrappedResponse.routes {
+                           self.mapView.addOverlay(route.polyline)
+                               self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                       }
+                   }
+           }
     
     
     
