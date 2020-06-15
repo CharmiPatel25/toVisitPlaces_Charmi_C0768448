@@ -26,7 +26,26 @@ class ViewController: UITableViewController {
         return filePath
     }
     
-    
+    func loadPlaces(){
+        favDestination = [Places]()
+        let filePath = getPath()
+        if FileManager.default.fileExists(atPath: filePath) {
+            do{
+                let fileContent = try String(contentsOfFile: filePath)
+                let contentArray = fileContent.components(separatedBy: "\n")
+                for content in contentArray {
+                    let favoritePlaceContent = content.components(separatedBy: ",")
+                    if favoritePlaceContent.count == 2 {
+                        let favoritePlace = Places(lattitude: Double(favoritePlaceContent[0])!, longitude: Double(favoritePlaceContent[1])!,address: favoritePlaceContent[2])
+                        favDestination?.append(favoritePlace)
+                    }
+                }
+                
+            }catch {
+                print(error)
+            }
+        }
+    }
 
 
 }
