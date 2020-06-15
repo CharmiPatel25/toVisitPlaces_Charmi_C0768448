@@ -65,7 +65,7 @@ class AddNewPlaceViewController: UIViewController ,  MKMapViewDelegate, UITabBar
     }
     func getPath() -> String {
         let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let filePath = documentPath.appending("/FavoritePlaceData.txt")
+        let filePath = documentPath.appending("/Favorite-Place-Data.txt")
         return filePath
     }
     
@@ -135,6 +135,29 @@ class AddNewPlaceViewController: UIViewController ,  MKMapViewDelegate, UITabBar
         locationBtn.isHidden = false
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let favoritePlacesListTableVC = segue.destination as? ViewController {
+            favoritePlacesListTableVC.favDestination = self.favoritePlaces
+        }
+    }
+    
+    @objc func saveData() {
+        let filePath = getPath()
+        
+        var saveString = ""
+        
+        for favoritePlace in self.favoritePlaces! {
+            saveString = "\(saveString)\(favoritePlace.lattitude),\(favoritePlace.longitude),\(favoritePlace.address)\n"
+        }
+        
+        do{
+            try saveString.write(toFile: filePath, atomically: true, encoding: .utf8)
+        } catch {
+            print(error)
+        }
+        
+        
+    }
     
     
     

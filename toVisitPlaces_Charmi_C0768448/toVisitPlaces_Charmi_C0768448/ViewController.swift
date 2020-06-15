@@ -22,7 +22,7 @@ class ViewController: UITableViewController {
     
     func getPath() -> String {
         let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let filePath = documentPath.appending("/FavoritePlaceData.txt")
+        let filePath = documentPath.appending("/Favorite-Place-Data.txt")
         return filePath
     }
     
