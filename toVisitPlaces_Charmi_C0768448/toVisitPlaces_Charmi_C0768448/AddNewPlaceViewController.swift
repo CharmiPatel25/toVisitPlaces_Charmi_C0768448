@@ -261,8 +261,8 @@ class AddNewPlaceViewController: UIViewController ,  MKMapViewDelegate, UITabBar
         }else if self.request.transportType == .walking {
             let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
             renderer.strokeColor = UIColor.red
-            renderer.lineDashPattern = [5, 10]
-            renderer.lineWidth = 5.0
+            renderer.lineDashPattern = [0, 10]
+            renderer.lineWidth = 8
             renderer.alpha = 0.80
             return renderer
         }
@@ -270,9 +270,34 @@ class AddNewPlaceViewController: UIViewController ,  MKMapViewDelegate, UITabBar
         return MKOverlayRenderer()
     }
     
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+            if(item == travelMode   .items?[0]){
+                //remove overlays
+                mapView.removeOverlays(mapView.overlays)
+                self.request.transportType = .walking
+                travelMode.selectedItem = travelMode.items?[0]
+                getRoute()
+            }else if(item == travelMode.items?[1]){
+                //remove overlays
+                mapView.removeOverlays(mapView.overlays)
+                self.request.transportType = .automobile
+                travelMode.selectedItem = travelMode.items?[1]
+                getRoute()
+            }
+        }
     
     
-    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+           if annotation is MKUserLocation{
+            return nil
+
+        }
+                    let pinAnnotation = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "droppablePin")
+                    pinAnnotation.animatesDrop = true
+                    pinAnnotation.canShowCallout = true
+                    pinAnnotation.rightCalloutAccessoryView = UIButton(type: .contactAdd)
+                    return pinAnnotation
+    }
     
 
     /*
