@@ -138,8 +138,12 @@
                     <navigationItem key="navigationItem" title="Add New  Place" id="Cah-g2-evp"/>
                     <connections>
                         <outlet property="findMyWayBtn" destination="xxi-HV-uwj" id="uTp-x4-7y5"/>
+                        <outlet property="locationBtn" destination="xxi-HV-uwj" id="Ltd-Qu-PvL"/>
                         <outlet property="mapObject" destination="HMI-VR-5pq" id="HDT-b2-o3N"/>
+                        <outlet property="mapView" destination="HMI-VR-5pq" id="OTW-f6-l9P"/>
                         <outlet property="routeTabBar" destination="vN7-K1-Pwt" id="C6m-bC-252"/>
+                        <outlet property="travelMode" destination="vN7-K1-Pwt" id="hIG-wh-v1p"/>
+                        <outlet property="zoom" destination="uY0-5N-GUh" id="tvq-8H-Qqi"/>
                         <outlet property="zoomStepper" destination="uY0-5N-GUh" id="YC4-sS-4FA"/>
                     </connections>
                 </viewController>
