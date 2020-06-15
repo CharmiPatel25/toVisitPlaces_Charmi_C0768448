@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import  MapKit
 
 class EditPlaceViewController: UIViewController {
 
+    var stepperComparingValue = 0.0
+    let defaults = UserDefaults.standard
+    var editLat: Double = 0.0
+    var editLong: Double = 0.0
+    var editPlaceIndex: Int?
+    var editPlaces: [Places]?
+    
+    @IBOutlet weak var zoom: UIStepper!
     
     
-    
+    @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -19,7 +19,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favPlaceCell" textLabel="br1-sM-NKX" detailTextLabel="nen-Zn-kXU" style="IBUITableViewCellStyleSubtitle" id="Tek-Z7-kzL">
                                 <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tek-Z7-kzL" id="83z-mJ-0uy">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="favoritePlaceCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tek-Z7-kzL" id="83z-mJ-0uy">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -84,6 +84,8 @@
                     <connections>
                         <outlet property="ZoomStepper" destination="PRp-cC-0RA" id="OY6-aY-DdU"/>
                         <outlet property="mapForEditPlace" destination="D9u-ja-XPH" id="ouI-hS-QX6"/>
+                        <outlet property="mapView" destination="D9u-ja-XPH" id="L2g-dV-2Qf"/>
+                        <outlet property="zoom" destination="PRp-cC-0RA" id="i3E-dM-JNk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLz-dk-o0t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

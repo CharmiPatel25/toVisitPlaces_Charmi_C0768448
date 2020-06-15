@@ -70,6 +70,65 @@ class ViewController: UITableViewController {
                    }
                    
     }
+    
+    
+    
+       override func numberOfSections(in tableView: UITableView) -> Int {
+           // #warning Incomplete implementation, return the number of sections
+           return 1
+       }
+
+       override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+           // #warning Incomplete implementation, return the number of rows
+           return favDestination?.count ?? 0
+       }
+
+       
+       override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+           
+                   let favoritePlace = self.favDestination![indexPath.row]
+                   let cell = tableView.dequeueReusableCell(withIdentifier: "favoritePlaceCell")
+                  cell?.textLabel?.text =  favoritePlace.address
+                cell?.detailTextLabel?.text = "Lattitude: " + String(favoritePlace.lattitude) + " Longitude: " + String(favoritePlace.longitude)
+                  return cell!
+       }
+       override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+               
+               var newArray = self.favDestination!
+               
+               newArray.remove(at: indexPath.row)
+               
+               if editingStyle == .delete {
+                   let alert = UIAlertController(title: "Alert", message: "Are you sure you want to delete this place?", preferredStyle: .alert)
+                   let addAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+                       // Delete the row from the data source
+                       self.favDestination?.remove(at: indexPath.row)
+                       self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                       
+                       self.deleteData(newArray)
+                   }
+                   let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+               
+                   alert.addAction(addAction)
+                   alert.addAction(cancelAction)
+                      present(alert, animated: true, completion: nil)
+                   
+               }
+           }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let favoritePlace = self.favDestination![indexPath.row]
+        self.editDestination = self.favDestination![indexPath.row]
+        
+        defaults.set(favoritePlace.lattitude, forKey: "editLat")
+        defaults.set(favoritePlace.longitude, forKey: "editLong")
+        
+        let editPlaceViewController = self.storyboard?.instantiateViewController(withIdentifier: "editPlaceViewController") as! EditPlaceViewController
+
+        editPlaceViewController.editPlaceIndex = indexPath.row
+        
+        self.navigationController?.pushViewController(editPlaceViewController, animated: true)
+    }
+
 
 }
 
