@@ -299,6 +299,72 @@ class AddNewPlaceViewController: UIViewController ,  MKMapViewDelegate, UITabBar
                     return pinAnnotation
     }
     
+     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl)
+     {
+        
+                    let alert = UIAlertController(title: "Favorite ?", message: "Do you want to add this place to your list?", preferredStyle: .alert)
+                let addAction = UIAlertAction(title: "Add", style: .cancel) { (UIAlertAction) in
+    //                print("Data Addition process")
+
+                    let lat = self.favoriteLocation?.coordinate.latitude
+                    let long = self.favoriteLocation?.coordinate.longitude
+                    
+                    
+                    CLGeocoder().reverseGeocodeLocation(self.favoriteLocation ?? CLLocation() ) { (placemarks, error) in
+                                 if error != nil {
+                                     print("Error found: \(error!)")
+                                 } else {
+                                     if let placemark = placemarks?[0] {
+                                     
+                                     var address = ""
+                                     
+                                         if placemark.subThoroughfare != nil{
+                                             address += placemark.subThoroughfare! + " "
+                                         }
+                                         
+                                         if placemark.thoroughfare != nil {
+                                              address += placemark.thoroughfare! + " "
+                                         }
+                                         
+                                         if placemark.subLocality != nil {
+                                             address += placemark.subLocality! + " "
+                                                            }
+                                         
+                                         if placemark.subAdministrativeArea != nil {
+                                             address += placemark.subAdministrativeArea! + " "
+                                                            }
+                                         
+                                         if placemark.postalCode != nil {
+                                             address += placemark.postalCode! + " "
+                                                            }
+                                         
+                                         if placemark.country != nil {
+                                             address += placemark.country!
+                                                            }
+                                         print(address)
+                                        self.favoriteAddress = address
+
+
+                                      let favoritePlace = Places(lattitude: lat ?? 0.0, longitude: long ?? 0.0, address: self.favoriteAddress ?? "no address found")
+
+                                             self.favoritePlaces?.append(favoritePlace)
+                                        print("Place Added")
+                                      self.saveData()
+                                      self.navigationController?.popToRootViewController(animated: true)
+                                     }
+                               
+                                }
+                        }
+                }
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                    alert.addAction(cancelAction)
+                    alert.addAction(addAction)
+              
+                 present(alert, animated: true, completion: nil)
+             }
+            
+        
+}
 
     /*
     // MARK: - Navigation
@@ -310,4 +376,5 @@ class AddNewPlaceViewController: UIViewController ,  MKMapViewDelegate, UITabBar
     }
     */
 
-}
+  
+
