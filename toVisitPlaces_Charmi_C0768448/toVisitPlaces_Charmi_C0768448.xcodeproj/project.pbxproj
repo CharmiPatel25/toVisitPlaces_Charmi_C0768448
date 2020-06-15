@@ -14,6 +14,8 @@
 		A14ADADA24955A890050193B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A14ADAD924955A890050193B /* Assets.xcassets */; };
 		A14ADADD24955A890050193B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14ADADB24955A890050193B /* LaunchScreen.storyboard */; };
 		A195AD1A24980FEB0004DF87 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = A195AD1924980FEB0004DF87 /* Places.swift */; };
+		A195AD1C2498131F0004DF87 /* AddNewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A195AD1B2498131F0004DF87 /* AddNewPlaceViewController.swift */; };
+		A195AD1E249813370004DF87 /* EditPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A195AD1D249813370004DF87 /* EditPlaceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		A14ADADC24955A890050193B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A14ADADE24955A890050193B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A195AD1924980FEB0004DF87 /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
+		A195AD1B2498131F0004DF87 /* AddNewPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPlaceViewController.swift; sourceTree = "<group>"; };
+		A195AD1D249813370004DF87 /* EditPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlaceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +46,7 @@
 		A14ADAC424955A880050193B = {
 			isa = PBXGroup;
 			children = (
+				A195AD1D249813370004DF87 /* EditPlaceViewController.swift */,
 				A14ADACF24955A880050193B /* toVisitPlaces_Charmi_C0768448 */,
 				A14ADACE24955A880050193B /* Products */,
 			);
@@ -66,6 +71,7 @@
 				A14ADADB24955A890050193B /* LaunchScreen.storyboard */,
 				A14ADADE24955A890050193B /* Info.plist */,
 				A195AD1924980FEB0004DF87 /* Places.swift */,
+				A195AD1B2498131F0004DF87 /* AddNewPlaceViewController.swift */,
 			);
 			path = toVisitPlaces_Charmi_C0768448;
 			sourceTree = "<group>";
@@ -141,9 +147,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A195AD1E249813370004DF87 /* EditPlaceViewController.swift in Sources */,
 				A14ADAD524955A880050193B /* ViewController.swift in Sources */,
 				A14ADAD124955A880050193B /* AppDelegate.swift in Sources */,
 				A14ADAD324955A880050193B /* SceneDelegate.swift in Sources */,
+				A195AD1C2498131F0004DF87 /* AddNewPlaceViewController.swift in Sources */,
 				A195AD1A24980FEB0004DF87 /* Places.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
