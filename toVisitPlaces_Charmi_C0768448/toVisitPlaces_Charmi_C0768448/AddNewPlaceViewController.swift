@@ -249,6 +249,28 @@ class AddNewPlaceViewController: UIViewController ,  MKMapViewDelegate, UITabBar
                    }
            }
     
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if self.request.transportType == .automobile
+        {
+        let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 5.0
+        renderer.alpha = 0.80
+            return renderer
+            
+        }else if self.request.transportType == .walking {
+            let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+            renderer.strokeColor = UIColor.red
+            renderer.lineDashPattern = [5, 10]
+            renderer.lineWidth = 5.0
+            renderer.alpha = 0.80
+            return renderer
+        }
+        
+        return MKOverlayRenderer()
+    }
+    
+    
     
     
     
