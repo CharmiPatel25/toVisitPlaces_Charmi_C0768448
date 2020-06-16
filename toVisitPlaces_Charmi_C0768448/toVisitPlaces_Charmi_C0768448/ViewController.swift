@@ -35,7 +35,7 @@ class ViewController: UITableViewController {
                 let contentArray = fileContent.components(separatedBy: "\n")
                 for content in contentArray {
                     let favoritePlaceContent = content.components(separatedBy: ",")
-                    if favoritePlaceContent.count == 2 {
+                    if favoritePlaceContent.count == 3 {
                         let favoritePlace = Places(lattitude: Double(favoritePlaceContent[0])!, longitude: Double(favoritePlaceContent[1])!,address: favoritePlaceContent[2])
                         favDestination?.append(favoritePlace)
                     }
@@ -71,7 +71,7 @@ class ViewController: UITableViewController {
                    
     }
     
-    
+          //Table Data
     
        override func numberOfSections(in tableView: UITableView) -> Int {
            // #warning Incomplete implementation, return the number of sections
@@ -90,7 +90,7 @@ class ViewController: UITableViewController {
                    let cell = tableView.dequeueReusableCell(withIdentifier: "favoritePlaceCell")
                   cell?.textLabel?.text =  favoritePlace.address
                 cell?.detailTextLabel?.text = "Lattitude: " + String(favoritePlace.lattitude) + " Longitude: " + String(favoritePlace.longitude)
-                  return cell!
+        return cell!
        }
        override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
                
@@ -128,6 +128,8 @@ class ViewController: UITableViewController {
         
         self.navigationController?.pushViewController(editPlaceViewController, animated: true)
     }
+    
+    
 
 
 }

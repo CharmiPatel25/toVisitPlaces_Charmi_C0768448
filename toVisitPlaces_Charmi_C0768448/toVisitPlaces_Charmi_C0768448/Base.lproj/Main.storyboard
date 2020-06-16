@@ -16,10 +16,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favPlaceCell" textLabel="br1-sM-NKX" detailTextLabel="nen-Zn-kXU" style="IBUITableViewCellStyleSubtitle" id="Tek-Z7-kzL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoritePlaceCell" textLabel="br1-sM-NKX" detailTextLabel="nen-Zn-kXU" style="IBUITableViewCellStyleSubtitle" id="Tek-Z7-kzL">
                                 <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="favoritePlaceCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tek-Z7-kzL" id="83z-mJ-0uy">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tek-Z7-kzL" id="83z-mJ-0uy">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -61,6 +61,7 @@
         <!--Edit Place View Controller-->
         <scene sceneID="bnV-WL-jTN">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xLz-dk-o0t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="editPlaceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WN8-0w-zsH" customClass="EditPlaceViewController" customModule="toVisitPlaces_Charmi_C0768448" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Rz-gj-G1n">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -71,7 +72,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumValue="-100" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="PRp-cC-0RA">
-                                <rect key="frame" x="20" y="113" width="94" height="32"/>
+                                <rect key="frame" x="160" y="678" width="94" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="stepperValueChanged:" destination="WN8-0w-zsH" eventType="valueChanged" id="N3j-CN-Bkw"/>
@@ -82,12 +83,10 @@
                         <viewLayoutGuide key="safeArea" id="G3W-c6-elX"/>
                     </view>
                     <connections>
-                        <outlet property="mapForEditPlace" destination="D9u-ja-XPH" id="ouI-hS-QX6"/>
-                        <outlet property="mapView" destination="D9u-ja-XPH" id="L2g-dV-2Qf"/>
+                        <outlet property="mapView" destination="D9u-ja-XPH" id="wzH-kW-mGS"/>
                         <outlet property="zoom" destination="PRp-cC-0RA" id="i3E-dM-JNk"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xLz-dk-o0t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3572.4637681159425" y="956.25"/>
         </scene>
@@ -121,7 +120,7 @@
                                 </items>
                             </tabBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxi-HV-uwj">
-                                <rect key="frame" x="270" y="638" width="61" height="60"/>
+                                <rect key="frame" x="277" y="652" width="61" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.088881986590000003" green="0.21694519349999999" blue="0.26583433969999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>

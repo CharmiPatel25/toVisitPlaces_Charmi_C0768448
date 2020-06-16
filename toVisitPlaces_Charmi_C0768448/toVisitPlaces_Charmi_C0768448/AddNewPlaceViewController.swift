@@ -78,7 +78,7 @@ class AddNewPlaceViewController: UIViewController ,  MKMapViewDelegate, UITabBar
                 let contentArray = fileContent.components(separatedBy: "\n")
                 for content in contentArray {
                     let favoritePlaceContent = content.components(separatedBy: ",")
-                    if favoritePlaceContent.count == 2 {
+                    if favoritePlaceContent.count == 3 {
                         let favoritePlace = Places(lattitude: Double(favoritePlaceContent[0])!, longitude: Double(favoritePlaceContent[1])!,address: favoritePlaceContent[2])
                         favoritePlaces?.append(favoritePlace)
                     }
